@@ -1,0 +1,86 @@
+.chatContainer {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  max-height: 500px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
+
+.messageContainer {
+  margin-bottom: 16px;
+}
+
+.messageContent {
+  padding: 12px 16px;
+  border-radius: 8px;
+  max-width: 80%;
+  width: fit-content;
+  min-width: 100px;
+}
+
+.userMessage .messageContent {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.assistantMessage .messageContent {
+  background-color: #e9ecef;
+  color: #333;
+  margin-right: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.messageType {
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 11px;
+}
+
+.messageText {
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 스크롤바 스타일링 */
+.chatContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.chatContainer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.chatContainer::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+} 
