@@ -1,13 +1,4 @@
-export interface ChatRequestDto {
-  prompt: string;
-}
-
-export interface ChatResponseDto {
-  success: boolean;
-  message?: string;
-  error?: string;
-  prompt?: string;
-}
+import type { ChatRequestDto, ChatResponseDto } from '../dto/chat.dto';
 
 export const callOpenAI = async (message: string): Promise<string> => {
   const requestBody: ChatRequestDto = {
