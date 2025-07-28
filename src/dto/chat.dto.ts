@@ -1,9 +1,9 @@
 export interface ChatRequestDto {
   prompt: string;
+  timestamp: string;
 }
 
 export interface ChatResponseDto {
   success: boolean;
-  prompt?: string;
-  error?: string;
+  message?: string;
 } 
