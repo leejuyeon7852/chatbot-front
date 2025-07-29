@@ -72,22 +72,42 @@ const ChatApp: React.FC = () => {
     }
   };
 
-  // 대화 복원
+  // 새로고침 시 채팅 내용 삭제
   useEffect(() => {
-    const saved = localStorage.getItem('chat_messages');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        setMessages(parsed.map((msg: any) => ({ ...msg, timestamp: new Date(msg.timestamp) })));
-      } catch {}
-    }
+    // 새로고침 시 채팅 내용 삭제
+    localStorage.removeItem('chat_messages');
+    const now = new Date();
+    console.log('앱 실행 시각:', now.toISOString());
   }, []);
 
-  // 자동 스크롤
+  // 대화 복원 (삭제됨 - 새로고침 시 항상 빈 상태로 시작)
+  // useEffect(() => {
+  //   const saved = localStorage.getItem('chat_messages');
+  //   if (saved) {
+  //     try {
+  //       const parsed = JSON.parse(saved);
+  //       setMessages(parsed.map((msg: any) => ({ ...msg, timestamp: new Date(msg.timestamp) })));
+  //     } catch {}
+  //   }
+  // }, []);
+
+  // 채팅 컨테이너가 마운트될 때 맨 아래로 스크롤
   useEffect(() => {
     const chatContainer = document.querySelector(`.${styles.chatContainer}`);
     if (chatContainer) {
       chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  }, []);
+
+  // 새 메시지가 추가될 때 자동으로 스크롤
+  useEffect(() => {
+    const chatContainer = document.querySelector(`.${styles.chatContainer}`);
+    if (chatContainer) {
+      // 부드러운 스크롤로 맨 아래로 이동
+      chatContainer.scrollTo({
+        top: chatContainer.scrollHeight,
+        behavior: 'smooth'
+      });
     }
   }, [messages]);
 

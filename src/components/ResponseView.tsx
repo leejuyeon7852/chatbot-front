@@ -31,14 +31,6 @@ const ResponseView: React.FC<ResponseViewProps> = ({ messages }) => {
           }`}
         >
           <div className={styles.messageContent}>
-            <div className={styles.messageHeader}>
-              <span className={styles.messageType}>
-                {message.type === 'user' ? '사용자' : 'AI'}
-              </span>
-              <span className={styles.timestamp}>
-                {message.timestamp.toLocaleTimeString()}
-              </span>
-            </div>
             <div className={styles.messageText}>
               {message.content}
             </div>

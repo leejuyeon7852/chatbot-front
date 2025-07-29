@@ -6,7 +6,7 @@ export const callOpenAI = async (message: string, timestamp: string): Promise<st
     timestamp: timestamp
   };
 
-  const apiResponse = await fetch('http://localhost:3000/openai/chat', {
+  const apiResponse = await fetch('http://localhost:3000/openai/rag', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
